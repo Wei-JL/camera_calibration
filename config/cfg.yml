@@ -1,0 +1,17 @@
+CameraID: 1 # 该属性没有用到
+CamerName: HSCamera1 # 该属性没有用到
+ImageSize: [640, 480]
+Pattern: "INVAILD_STRING" # 该属性没有用到
+BoardSize: [13, 9] # 标定板的角点13 x 9
+FrameNum: 30 # 该数字没有用到，尽可能大于30张用于求内参和畸变矩阵
+SquareSize: 0.018 # 标定板的黑色正方形的边长，单位M
+DistanceFromOrigin: [0.555, 0.55, 0.96] # X-Y-Z 右手坐标系,单位M, y轴向前
+DemarcateEdgeDistance: [0.021, 0.012] #标定板一端的多余留白的宽，以及多余留白的长
+
+SaveIMGPath: [False, "./out_draw_img/"]
+# 求内参所用的图片文件夹路径
+InternalImgPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/imgData/InternalParametersIMG/"
+# 求外参所用的图片文件夹路径
+ExternalImgPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/imgData/ExternalParametersIMG/"
+# 保存生成的内外参
+SaveYMLPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/ymlResult"
