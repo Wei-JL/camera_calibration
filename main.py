@@ -10,6 +10,11 @@ import cv2
 import numpy as np
 
 
+def create_folder_if_not_exists(path):
+    if not os.path.exists(path):
+        os.makedirs(path, True)
+
+
 def save_camera_parameters_to_yaml(saveYMLPath, camera_parameter):
     """
     将相机参数保存到 YML 文件
@@ -82,6 +87,5 @@ if __name__ == '__main__':
         camera_parameter.calculating_internal_parameters(object_list, corners_list, img_size)
         camera_parameter.calculating_external_parameters(cal_img.object_points, cal_img.corners)
 
-
-
+    create_folder_if_not_exists(os.path.dirname(saveYMLPath))
     save_camera_parameters_to_yaml(saveYMLPath, camera_parameter)
