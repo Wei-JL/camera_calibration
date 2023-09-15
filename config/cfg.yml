@@ -14,4 +14,4 @@ InternalImgPath: "/home/ecd_607300_1827621407188/work/project/python_project/cam
 # 求外参所用的图片文件夹路径
 ExternalImgPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/imgData/ExternalParametersIMG/"
 # 保存生成的内外参
-SaveYMLPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/ymlResult"
+SaveYMLPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/ymlResult/CameraPropertiesYML.yml"

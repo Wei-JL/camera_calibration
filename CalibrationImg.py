@@ -2,16 +2,14 @@ import os
 import cv2
 import numpy as np
 
-import load_yml
-
 
 class Calibration:
-    def __init__(self, config, image_filename):
-        self.img_path = config['InternalImgPath']
+    def __init__(self, config, img_path, image_filename):
         self.board_size = config['BoardSize']
         self.square_size = config['SquareSize']
         self.save_img_path = config['SaveIMGPath']
 
+        self.img_path = img_path
         self.original_image_name = image_filename
         self.image_path = os.path.join(self.img_path, image_filename)
         self.original_image_cv2 = cv2.imread(self.image_path)
@@ -24,7 +22,7 @@ class Calibration:
         self.camera_matrix, self.dist_coeffs = self.generate_depth_intrin()
 
         self.corners = []  # 新增成员变量用于记录角点
-        self.is_draw = False
+        self.is_draw, _ = self.save_img_path
         # 定义一组不同的颜色，每个角点和连接线使用不同的颜色
         self.colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0), (0, 255, 255), (255, 0, 255)]
 
@@ -50,7 +48,7 @@ class Calibration:
 
         # 显示图像
         cv2.imshow("Corners", image)
-        cv2.waitKey(800)
+        cv2.waitKey(350)
         cv2.destroyAllWindows()
 
     def find_and_draw_corners(self, ):
@@ -114,6 +112,10 @@ class CameraParameter:
         self.external_tvecs = []
         self.img_size = []
 
+        # 保存所有图片的外参
+        self.external_rvecs_list = []
+        self.external_tvecs_list = []
+
         # 把所有角点转为真实坐标系下的3d坐标
         self.truth_object_points = self.init_corners_3d()
 
@@ -147,3 +149,5 @@ class CameraParameter:
         self.external_rvecs = rvecs
         self.external_tvecs = tvecs
 
+        self.external_rvecs_list.append(rvecs)
+        self.external_tvecs_list.append(tvecs)
