@@ -10,8 +10,8 @@ DemarcateEdgeDistance: [0.021, 0.012] #标定板一端的多余留白的宽，�
 
 SaveIMGPath: [False, "./out_draw_img/"]
 # 求内参所用的图片文件夹路径
-InternalImgPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/imgData/InternalParametersIMG/"
+InternalImgPath: "./imgData/InternalParametersIMG/"
 # 求外参所用的图片文件夹路径
-ExternalImgPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/imgData/ExternalParametersIMG/"
+ExternalImgPath: "./imgData/ExternalParametersIMG/"
 # 保存生成的内外参
-SaveYMLPath: "/home/ecd_607300_1827621407188/work/project/python_project/camera_calibration/ymlResult/CameraPropertiesYML.yml"
+SaveYMLPath: "./ymlResult/CameraPropertiesYML.yml"
